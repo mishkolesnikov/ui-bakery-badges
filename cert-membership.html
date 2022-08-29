@@ -10,7 +10,7 @@
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
 <link
-  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+  href="https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@feature/custom-font/font/Proxima_Nova_Webkit.css"
   rel="stylesheet"
 />
 
@@ -34,11 +34,11 @@
   const css = `
     body {
       padding: 1rem;
-      font-family: "Montserrat", sans-serif;
+      font-family: ProximaNovaRegular, sans-serif;
     }
 
     .to-print {
-  		display: none;
+      display: none;
     }
 
     p {
@@ -63,9 +63,13 @@
       margin-right: 20px;
     }
 
+    .bold {
+      font-family: ProximaNovaBold, sans-serif;
+    }
+
     .container {
-      width: 238.6px;
-      height: 381px;
+      width: 270px;
+      height: 430px;
       position: relative;
       background-color: #fff;
       font-family: "Montserrat", sans-serif;
@@ -75,21 +79,19 @@
       text-align: center;
       background-color: #101e3d;
       color: #ffffff;
-      font-weight: 500;
-      font-size: 14px;
-      padding: 5px;
+      font-size: 18px;
+      padding: 3px 0;
     }
 
     .header-2 {
       text-align: center;
       background-color: #6ea340;
-      font-weight: 500;
-      font-size: 14px;
-      padding-bottom: 1px;
+      font-size: 18px;
+      line-height: 1;
+      padding: 2px;
     }
 
     .body {
-      height: 293px;
       display: flex;
       position: relative;
     }
@@ -99,14 +101,13 @@
       text-align: center;
       writing-mode: vertical-lr;
       font-size: 9px;
-      font-weight: 400;
       padding: 0 10px;
       position: absolute;
       height: 100%;
     }
 
     .center {
-      padding-top: 10px;
+      padding-top: 13px;
       text-align: center;
     }
 
@@ -120,13 +121,13 @@
     .avatar-row {
       display: flex;
       justify-content: center;
-      height: 134px;
+      height: 145px;
     }
 
     .avatar {
       flex-shrink: 0;
-      height: 134px;
-      width: 134px;
+      height: 145px;
+      width: 145px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -147,17 +148,21 @@
     }
 
     .name {
-      font-size: 12px;
-      font-weight: 700;
-      margin-top: 7px;
+      font-size: 14px;
+      margin-top: 14px;
+      line-height: 1;
+    }
+
+    .last-name {
+      margin-top: 2px;
     }
 
     .logos {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .logos img {
-      height: 61px;
+      height: 65px;
     }
 
     .logos img:first-child {
@@ -167,16 +172,15 @@
     .info {
       margin-top: 5px;
       padding: 0 20px;
-      font-size: 8px;
-      font-weight: 500;
+      font-size: 10px;
     }
 
     .footer-1 {
+      margin-top: 9px;
       text-align: center;
       background-color: #101e3d;
       color: #ffffff;
-      font-weight: 500;
-      font-size: 14px;
+      font-size: 17px;
       padding: 3px 5px;
       text-transform: uppercase;
     }
@@ -184,15 +188,14 @@
     .footer-2 {
       text-align: center;
       background-color: #6ea340;
-      font-weight: 500;
-      font-size: 14px;
+      font-size: 17px;
       line-height: 1;
       padding: 2px 0;
     }
 
     .qr-code {
-      height: 165px;
-      width: 165px;
+      height: 190px;
+      width: 190px;
       margin: 0 auto;
       margin-top: 14px;
     }
@@ -202,14 +205,14 @@
     }
 
     .back-info-1 {
-      padding: 8px;
-      font-size: 10px;
+      padding: 10px;
+      font-size: 12px;
     }
 
     .back-info-2 {
-      margin-top: 3px;
-      font-size: 10px;
-      padding: 8px;
+      margin: 25px 0 10px;
+      font-size: 9px;
+      padding: 10px;
     }
 
     .back-info-2 p:first-child {
@@ -225,17 +228,17 @@
       body {
         padding: 0;
         margin: 0;
-   			print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
       .to-print {
         display: block;
       }
-  	}
+    }
 
     @page {
       size: 54mm 86mm;
-  		margin: 0mm;
+      margin: 0mm;
     }
   `;
 
@@ -296,8 +299,8 @@
     );
     return (
       <div className="container" ref={ref}>
-        <div className="header-1">National CERT Association</div>
-        <div className="header-2">
+        <div className="header-1 bold">National CERT Association</div>
+        <div className="header-2 bold">
           {props.member[fieldsMapping.position] || '\u00A0'}
         </div>
         <div className="body">
@@ -308,7 +311,7 @@
           </div>
           <div className="center">
             <div className="avatar-row">{avatar}</div>
-            <div className="name">
+            <div className="name bold">
               <div className="value">
                 {props.member[fieldsMapping.firstName]}
               </div>
@@ -328,16 +331,16 @@
                 alt="cert-logo"
               ></img>
             </div>
-            <div className="info">
+            <div className="info bold">
               This card is valid for National CERT Association related events
               and activities only
             </div>
           </div>
         </div>
-        <div className="footer-1">
+        <div className="footer-1 bold">
           {props.member[fieldsMapping.membershipType] || '\u00A0'}
         </div>
-        <div className="footer-2">
+        <div className="footer-2 bold">
           {props.member[fieldsMapping.memberNumber] || '\u00A0'}
         </div>
       </div>
@@ -361,8 +364,8 @@
         } else {
           qrCodes[qrId] = new QRCode(document.getElementById(qrId), {
             text: props.member[fieldsMapping.qrCode],
-            height: 165,
-            width: 165,
+            height: 190,
+            width: 190,
           });
         }
       });
@@ -370,14 +373,14 @@
 
     return (
       <div className="container back" ref={ref}>
-        <div className="back-info-1">
+        <div className="back-info-1 bold">
           <p className>
             Scanning the member QR code will return any FEMA CERT credentialing
             typing and NCA Credentials that the member has achieved.
           </p>
         </div>
         <div className="qr-code" id={qrId}></div>
-        <div className="back-info-2">
+        <div className="back-info-2 bold">
           <p>Download the Merit App to scan this member’s ID QR Code.</p>
           <p>Search “Merit” on the App store and Android Shop</p>
         </div>
@@ -447,7 +450,7 @@
   				<head>
   					<style>${css}</style>
             <link
-              href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+              href="https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@feature/custom-font/font/Proxima_Nova_Webkit.css"
               rel="stylesheet"
             />
   				</head>
