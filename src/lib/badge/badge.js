@@ -7,8 +7,9 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
   const changeFormat = (format) => {
     setAvatarFormat(format);
   }
-
-  const badges = members.map((member, index) => (
+  
+  const badges = members.length > 0 
+  ? members.map((member, index) => (
     <div className="badge-container" key={member[fieldsMapping.uid]}>
       <div className="front">
         <span className="heading">Front</span>
@@ -31,10 +32,11 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
         </div>
       </div>
     </div>
-  ));
+  ))
+  : null;
 
   const preview =
-      selected !== undefined ? (
+      selected != null ? (
         <div>
           Preview
           <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>

@@ -1,7 +1,8 @@
 import { Printer } from './lib';
 import { badges } from './lib';
 import { data } from './data';
-import React from 'react';
+import React, { useState } from 'react';
+import { MembersList } from './members-list';
 
 export const App = () => {
 
@@ -30,14 +31,33 @@ export const App = () => {
   // };
 
   // const badge = badges.favStuffing;
+  const [selected, setSelected] = useState(null);
+  const [memberIdsToPrint, setMemberIdsToPrint] = useState([]);
+
+  const handleMemberClick = (member) => {
+    setSelected(member);
+  }
+
+  const handleToPrintChange = (isToPrint, memberId) => {
+    const newValue = isToPrint ? memberIdsToPrint.concat(memberId) : memberIdsToPrint.filter(id => id !== memberId);
+    setMemberIdsToPrint(newValue);
+  }
 
   return (
-    <Printer
-      members={data.members}
-      selected={data.selected}
-      fieldsMapping={fieldsMapping}
-      badge={badge}
-    />
+    <div>
+      <MembersList 
+        data={data.members}
+        fieldsMapping={fieldsMapping}
+        onPreviewSelected={(member) => handleMemberClick(member)}
+        onMemberSelected={(isToPrint, memberId) => handleToPrintChange(isToPrint, memberId)}
+      />
+      <Printer
+        members={memberIdsToPrint.map(id => data.members.find(m => m[fieldsMapping.uid] === id))}
+        selected={selected}
+        fieldsMapping={fieldsMapping}
+        badge={badge}
+      />
+    </div>
   )
 }
 

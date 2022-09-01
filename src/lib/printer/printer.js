@@ -1,25 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Badge } from '../badge/badge';
 import './printer.css';
 
-export class Printer extends React.Component {
-  constructor(props) {
-    super(props);
+export const Printer = ({members, selected, fieldsMapping, badge}) => {
 
-    this.state = {
-      members: props.members,
-      badgeRefs: props.members.map(() => ({
-        front: React.createRef(),
-        back: React.createRef(),
-      })),
-      selected: props.selected,
-      fieldsMapping: props.fieldsMapping,
-      badge: props.badge,
-      loading: false,
-    };
-  }
+  const [loading, setLoading] = useState(false);
+  
+  const badgeRefs = members.map(() => ({
+    front: React.createRef(),
+    back: React.createRef(),
+  }));
 
-  print() {
+  const print = () => {
     // create hidden iframe
     const oldFrame = document.getElementById('o-hidd-frame');
     if (oldFrame) {
@@ -47,7 +39,7 @@ export class Printer extends React.Component {
           />
         </head>
         <body>
-          ${this.state.badgeRefs
+          ${badgeRefs
             .map((badge) => {
               return (
                 badge.front.current.outerHTML + badge.back.current.outerHTML
@@ -60,7 +52,7 @@ export class Printer extends React.Component {
     // print iframe content right after all needed images loaded
     const linkEls = w.document.querySelectorAll('link[rel=stylesheet]');
     if (w.document.images.length > 0 || linkEls.lengh > 0 || w.document.fonts.size > 0) {
-      this.setState({ loading: true });
+      setLoading(true);
 
       const linksAndImagesLoadingPromises = Array.from([...w.document.images, ...linkEls])
         .filter((img) => !img.complete)
@@ -78,7 +70,7 @@ export class Printer extends React.Component {
         ...linksAndImagesLoadingPromises,
         w.document.fonts.ready
       ]).then(() => {
-        this.setState({ loading: false });
+        setLoading(false);
         w.print();
       });
     } else {
@@ -86,31 +78,30 @@ export class Printer extends React.Component {
     }
   }
 
-  render() {
-    const printButton =
-      this.state.members.length === 0 ? (
-        <div>
-          <button disabled>Print ({this.state.members.length})</button>
-          <span>Please select some records to print</span>
-        </div>
-      ) : (
-        <button onClick={() => this.print()}>
-          Print ({this.state.members.length})
-        </button>
-      );
-    return this.state.loading ? (
-      <div class="loader">Loading...</div>
-    ) : (
-      <div className='printer'>
-        {printButton}
-        <Badge
-          members={this.state.members}
-          selected={this.state.selected}
-          badgeRefs={this.state.badgeRefs}
-          fieldsMapping={this.state.fieldsMapping}
-          badge={this.state.badge}
-        />
+  const printButton =
+    members.length === 0 ? (
+      <div>
+        <button disabled>Print ({members.length})</button>
+        <span>Please select some records to print</span>
       </div>
+    ) : (
+      <button onClick={() => print()}>
+        Print ({members.length})
+      </button>
     );
-  }
+
+  return loading ? (
+    <div class="loader">Loading...</div>
+  ) : (
+    <div className='printer'>
+      {printButton}
+      <Badge
+        members={members}
+        selected={selected}
+        badgeRefs={badgeRefs}
+        fieldsMapping={fieldsMapping}
+        badge={badge}
+      />
+    </div>
+  );
 }

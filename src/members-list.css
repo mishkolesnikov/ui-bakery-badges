@@ -1,0 +1,18 @@
+.members-list {
+  padding: 0.5rem;
+  border: 1px solid #ededed;
+}
+
+.member {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #ededed;
+  margin: 0.5rem;
+  border: 1px solid #ffffff;
+}
+
+.member:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid #ededed;
+}
