@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Add React in One Minute</title>
+    <link
+      href="https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@main/font/Proxima_Nova_Webkit.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h2>Add React in One Minute</h2>
@@ -22,22 +26,80 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
       crossorigin
     ></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
 
-    <script src="../dist/index.umd.min.js"></script>
+    <script src="../dist/index.umd.js"></script>
+    <!-- <script src="../dist/index.umd.js"></script> -->
 
     <!-- Load our React component. -->
     <script type="text/babel">
       'use strict';
+      const data = {
+        members: [
+          {
+            Select: true,
+            ID: '#0000009',
+            ISSUED_TO_FIRST_NAME_MERIT: 'Samantha',
+            ISSUED_TO_LAST_NAME_MERIT: 'Royster',
+            Printed: 'yes',
+            MEMBERSHIP_TYPE: '',
+            EXPIRATION_DATE: 'Jenuary 2022',
+            QR_URL: 'https://cataas.com/cat/cute',
+            HEADSHOT_URL:
+              'https://gomerits.jotform.com/uploads/jackson/212845250439052/5113489472812793739/SamanthaRoyster (2).jpg',
+            POSITION: 'Membership Chair',
+          },
+          {
+            Select: true,
+            ID: '#0001134',
+            ISSUED_TO_FIRST_NAME_MERIT: 'Jenny',
+            ISSUED_TO_LAST_NAME_MERIT: 'Demaris',
+            Printed: 'yes',
+            MEMBERSHIP_TYPE: '',
+            EXPIRATION_DATE: '',
+            QR_URL: 'https://cataas.com/cat.wild',
+            HEADSHOT_URL:
+              'https://gomerits.jotform.com/uploads/jackson/212845250439052/5128106972637683099/Demaris_ Headshot.jpg',
+            POSITION: '',
+          },
+        ],
+        selected: {
+          Select: '',
+          ID: '#0000009',
+          ISSUED_TO_FIRST_NAME_MERIT: 'Samantha',
+          ISSUED_TO_LAST_NAME_MERIT: 'Royster',
+          Printed: 'yes',
+          MEMBERSHIP_TYPE: '',
+          EXPIRATION_DATE: 'Jenuary 2022',
+          QR_URL: 'https://cataas.com/cat/cute',
+          HEADSHOT_URL:
+            'https://gomerits.jotform.com/uploads/jackson/212845250439052/5113489472812793739/SamanthaRoyster (2).jpg',
+          POSITION: 'Membership Chair',
+        },
+      };
+      const App = () => {
+        const fieldsMapping = {
+          uid: 'ID',
+          avatarUrl: 'HEADSHOT_URL',
+          position: 'POSITION',
+          firstName: 'ISSUED_TO_FIRST_NAME_MERIT',
+          lastName: 'ISSUED_TO_LAST_NAME_MERIT',
+          memberNumber: 'ID',
+          qrCode: 'QR_URL',
+          expiration: 'EXPIRATION_DATE',
+        };
 
-      function App() {
+        const badge = BadgesLib.badges.certMembership;
+
         return (
-          <div className="App">
-            <BadgesLib.Hw name="library" />
-          </div>
+          <BadgesLib.Printer
+            members={data.members}
+            selected={data.selected}
+            fieldsMapping={fieldsMapping}
+            badge={badge}
+          />
         );
-      }
-
+      };
       const root = ReactDOM.createRoot(document.getElementById('root'));
 
       root.render(

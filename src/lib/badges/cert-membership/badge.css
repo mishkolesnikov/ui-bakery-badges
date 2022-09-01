@@ -1,0 +1,173 @@
+.cert-membership.container {
+  width: 270px;
+  height: 430px;
+  position: relative;
+  background-color: #fff;
+}
+
+.cert-membership .header-1 {
+  text-align: center;
+  background-color: #101e3d;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 3px 0;
+}
+
+.cert-membership .header-2 {
+  text-align: center;
+  background-color: #6ea340;
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px;
+}
+
+.cert-membership .body {
+  display: flex;
+  position: relative;
+}
+
+.cert-membership .side {
+  transform: rotate(-180deg);
+  text-align: center;
+  writing-mode: vertical-lr;
+  font-size: 9px;
+  padding: 0 10px;
+  position: absolute;
+  height: 100%;
+}
+
+.cert-membership .center {
+  padding-top: 13px;
+  text-align: center;
+}
+
+.cert-membership .footer {
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 32px;
+}
+
+.cert-membership .avatar-row {
+  display: flex;
+  justify-content: center;
+  height: 145px;
+}
+
+.cert-membership .avatar {
+  flex-shrink: 0;
+  height: 145px;
+  width: 145px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cert-membership .portrait .img {
+  width: 145px;
+}
+
+.cert-membership .landscape .img {
+  height: 145px;
+}
+
+.cert-membership .position {
+  padding-top: 10px;
+  min-width: 0;
+}
+
+.cert-membership .name {
+  font-size: 14px;
+  margin-top: 14px;
+  line-height: 1;
+}
+
+.cert-membership .last-name {
+  margin-top: 2px;
+}
+
+.cert-membership .logos {
+  margin-top: 15px;
+  height: 60px;
+}
+
+.cert-membership .logos img {
+  height: 60px;
+}
+
+.cert-membership .logos img:first-child {
+  margin-right: 10px;
+}
+
+.cert-membership .info {
+  margin-top: 10px;
+  padding: 0 20px;
+  font-size: 10px;
+}
+
+.cert-membership .footer-1 {
+  margin-top: 9px;
+  text-align: center;
+  background-color: #101e3d;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 3px 5px;
+  text-transform: uppercase;
+}
+
+.cert-membership .footer-2 {
+  text-align: center;
+  background-color: #6ea340;
+  font-size: 17px;
+  line-height: 1;
+  padding: 2px 0;
+}
+
+.cert-membership .qr-code {
+  height: 230px;
+  width: 230px;
+  margin: 0 auto;
+  margin-top: 7px;
+}
+
+.cert-membership .merit-logo {
+  transform: scale(0.4);
+}
+
+.cert-membership .back-info-1 {
+  padding: 10px;
+  font-size: 12px;
+}
+
+.cert-membership .back-info-2 {
+  margin: 7px 0 10px;
+  font-size: 9px;
+  padding: 10px;
+}
+
+.cert-membership .back-info-2 p:first-child {
+  margin-bottom: 5px;
+}
+
+.cert-membership .logo-footer {
+  text-align: center;
+  margin-top: -10px;
+}
+
+@media print {
+  body {
+    padding: 0;
+    margin: 0;
+    print-color-adjust: exact;
+  }
+
+  .to-print {
+    display: block;
+  }
+}
+
+@page {
+  size: 54mm 86mm;
+  margin: 0mm;
+}

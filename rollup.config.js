@@ -3,7 +3,7 @@ import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import packageJSON from "./package.json";
-import postcss from 'rollup-plugin-postcss'
+import postcss from 'rollup-plugin-postcss';
 
 const input = "./src/lib/index.js";
 const minifyExtension = pathToFile => pathToFile.replace(/\.js$/, ".min.js");
@@ -47,7 +47,8 @@ export default [
         plugins: []
       }),
       babel({
-        exclude: "node_modules/**"
+        exclude: "node_modules/**",
+        babelHelpers: 'bundled'
       }),
       resolve(),
       terser()

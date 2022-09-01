@@ -1,0 +1,93 @@
+.fav-stuffing.container {
+  width: 270px;
+  height: 430px;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.fav-stuffing .header-container {
+  border-bottom-left-radius: 5px;
+}
+
+.fav-stuffing .header {
+  background-color: #0a81c4;
+  height: 124px;
+  width: 100%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 115px;
+}
+
+.fav-stuffing .body {
+  padding-top: 18px;
+  padding-left: 31px;
+}
+
+.fav-stuffing .name {
+  font-size: 46px;
+}
+
+.fav-stuffing .full-name {
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.fav-stuffing .position {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.fav-stuffing .eid {
+  font-size: 14px;
+}
+
+.fav-stuffing .footer img {
+  height: 54px;
+  margin-top: 43px;
+  margin-left: 102px;
+}
+
+.fav-stuffing .back-content {
+  padding: 151px 18px 0px;
+  height: 100%;
+}
+
+.fav-stuffing .qr-code-container {
+  position: relative;
+}
+
+.fav-stuffing .qr-code {
+  height: 230px;
+  width: 230px;
+  margin: 0 auto;
+}
+
+.fav-stuffing .merit-logo {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+}
+
+.fav-stuffing .back-info {
+  font-size: 11px;
+  margin-bottom: 21px;
+}
+
+@media print {
+  body {
+    padding: 0;
+    margin: 0;
+    print-color-adjust: exact;
+  }
+
+  .to-print {
+    display: block;
+  }
+}
+
+@page {
+  size: 54mm 86mm;
+  margin: 0mm;
+}
