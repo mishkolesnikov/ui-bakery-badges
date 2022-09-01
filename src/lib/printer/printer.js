@@ -1,4 +1,5 @@
 import React from 'react';
+import { Badge } from '../badge/badge';
 import './printer.css';
 
 export class Printer extends React.Component {
@@ -6,9 +7,8 @@ export class Printer extends React.Component {
     super(props);
 
     this.state = {
-      avatarFormat: 'portrait',
       members: props.members,
-      badges: props.members.map(() => ({
+      badgeRefs: props.members.map(() => ({
         front: React.createRef(),
         back: React.createRef(),
       })),
@@ -17,18 +17,6 @@ export class Printer extends React.Component {
       badge: props.badge,
       loading: false,
     };
-  }
-
-  handleFormatChange = (format) => {
-    this.setState({
-      avatarFormat: format,
-    });
-  };
-
-  changeFormat() {
-    this.handleFormatChange(
-      this.state.avatarFormat === 'portrait' ? 'landscape' : 'portrait'
-    );
   }
 
   print() {
@@ -46,7 +34,6 @@ export class Printer extends React.Component {
     // const w = window.open();
 
     // add needed styles, badge front and back elements to the iframe
-    
     let styles = '';
     document.querySelectorAll('style').forEach(el => styles = styles + el.outerHTML);
 
@@ -60,7 +47,7 @@ export class Printer extends React.Component {
           />
         </head>
         <body>
-          ${this.state.badges
+          ${this.state.badgeRefs
             .map((badge) => {
               return (
                 badge.front.current.outerHTML + badge.back.current.outerHTML
@@ -100,63 +87,6 @@ export class Printer extends React.Component {
   }
 
   render() {
-    const badges = this.state.members.map((member, index) => (
-      <div className="badge-container" key={member[this.state.fieldsMapping.uid]}>
-        <div className="front">
-          <span className="heading">Front</span>
-          <div className="badge-side-container">
-            <this.state.badge.front
-              member={this.state.members[index]}
-              avatarFormat={this.state.avatarFormat}
-              fieldsMapping={this.state.fieldsMapping}
-              ref={this.state.badges[index].front}
-              onFormatChange={() => {}}/>
-          </div>
-        </div>
-        <div className="back">
-          <span className="heading">Back</span>
-          <div className="badge-side-container">
-            <this.state.badge.back
-              member={this.state.members[index]}
-              fieldsMapping={this.state.fieldsMapping}
-              ref={this.state.badges[index].back}/>
-          </div>
-        </div>
-      </div>
-    ));
-
-    const preview =
-      this.state.selected !== undefined ? (
-        <div>
-          Preview
-          <button onClick={() => this.changeFormat()}>
-            Try Recrop Avatar
-          </button>
-          <div className="badge-container">
-            <div className="front">
-              <span className="heading">Front</span>
-              <div className="badge-side-container">
-                <this.state.badge.front
-                  member={this.state.selected}
-                  avatarFormat={this.state.avatarFormat}
-                  fieldsMapping={this.state.fieldsMapping}
-                  onFormatChange={(v) => this.handleFormatChange(v)}
-                  preview/>
-              </div>
-            </div>
-            <div className="back">
-              <span className="heading">Back</span>
-              <div className="badge-side-container">
-                <this.state.badge.back
-                  member={this.state.selected} fieldsMapping={this.state.fieldsMapping} preview />
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : (
-        'Please click on one of the elements to see the preview'
-      );
-
     const printButton =
       this.state.members.length === 0 ? (
         <div>
@@ -173,8 +103,13 @@ export class Printer extends React.Component {
     ) : (
       <div className='printer'>
         {printButton}
-        <div className="preview">{preview}</div>
-        <div className="to-print">{badges}</div>
+        <Badge
+          members={this.state.members}
+          selected={this.state.selected}
+          badgeRefs={this.state.badgeRefs}
+          fieldsMapping={this.state.fieldsMapping}
+          badge={this.state.badge}
+        />
       </div>
     );
   }
