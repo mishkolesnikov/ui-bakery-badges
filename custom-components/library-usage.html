@@ -1,0 +1,50 @@
+<script
+  src="https://unpkg.com/react@17/umd/react.production.min.js"
+  crossorigin
+></script>
+<script
+  src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
+  crossorigin
+></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@badges-library/dist/index.umd.min.js"></script>
+<link
+  href="https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@main/font/Proxima_Nova_Webkit.css"
+  rel="stylesheet"
+/>
+
+<div id="root">
+  <div id="qr-code"></div>
+</div>
+
+<script type="text/babel">
+  const fieldsMapping = {
+    uid: 'ID',
+    avatarUrl: 'HEADSHOT_URL',
+    position: 'POSITION',
+    firstName: 'ISSUED_TO_FIRST_NAME_MERIT',
+    lastName: 'ISSUED_TO_LAST_NAME_MERIT',
+    memberNumber: 'ID',
+    qrCode: 'QR_URL',
+    expiration: 'EXPIRATION_DATE',
+  };
+
+  const badge = BadgesLib.badges.certMembership;
+
+  const App = () => {
+    const data = UB.useData();
+
+    return (
+      <BadgesLib.Printer
+        members={data.members.filter((m) => m.Select)}
+        selected={data.selected}
+        fieldsMapping={fieldsMapping}
+        badge={badge}
+      />
+    );
+  };
+
+  const Component = UB.connectReactComponent(App);
+  ReactDOM.render(<Component />, document.getElementById('root'));
+</script>
