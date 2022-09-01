@@ -91,7 +91,7 @@ export const Printer = ({members, selected, fieldsMapping, badge}) => {
     );
 
   return loading ? (
-    <div class="loader">Loading...</div>
+    <div className="loader">Loading...</div>
   ) : (
     <div className='printer'>
       {printButton}

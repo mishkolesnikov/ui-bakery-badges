@@ -9,6 +9,11 @@
   background-color: #ededed;
   margin: 0.5rem;
   border: 1px solid #ffffff;
+  display: flex;
+}
+
+.checkbox {
+  margin-right: 1rem;
 }
 
 .member:hover {
