@@ -1,4 +1,3 @@
-import { Printer } from './printer/printer';
-import { badges } from "./badges";
+import { Container } from "./container/container";
 
-export { Printer, badges };
+export { Container };

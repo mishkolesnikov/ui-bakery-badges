@@ -1,0 +1,25 @@
+.badges-list {
+  border: 1px solid #ededed;
+  padding: 1rem;
+}
+
+.badge-element {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #ededed;
+  margin: 0.5rem;
+  border: 1px solid #ffffff;
+  display: flex;
+}
+
+.badge-element:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid #ededed;
+}
+
+.badge-element.selected {
+  background-color: #ffffff;
+  cursor: pointer;
+  border: 1px solid blue;
+}
