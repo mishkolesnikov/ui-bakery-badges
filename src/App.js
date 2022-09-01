@@ -51,6 +51,7 @@ export const App = () => {
       />
       <Container
         members={memberIdsToPrint.map(id => data.members.find(m => m[fieldsMapping.uid] === id))}
+        dataFields={Object.keys(data.members[0])}
         selected={selected}
         fieldsMapping={fieldsMapping}
       />

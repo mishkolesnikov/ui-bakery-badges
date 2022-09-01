@@ -8,9 +8,11 @@ export const badges = {
   certMembership: {
     back: CMBack,
     front: CMFront,
+    fields: ['uid', 'avatar', 'position', 'firstName', 'lastName', 'memberNumber', 'qrCode', 'expiration']
   },
   favStuffing: {
     back: FSBack,
-    front: FSFront
+    front: FSFront,
+    fields: ['uid', 'eid', 'name', 'fullName', 'qrCode', 'position']
   }
 };
