@@ -1,6 +1,8 @@
 import React from "react";
 import "./badge.css";
 import { favLogoBase64 } from './logosBase64';
+import { field } from "../../helpers";
+import { fields } from './fields';
 
 export const Front = React.forwardRef(({ member, fieldsMapping, preview }, ref) => {
   return (
@@ -9,14 +11,14 @@ export const Front = React.forwardRef(({ member, fieldsMapping, preview }, ref) 
         <div className="header"></div>
       </div>
       <div className="body">
-        <div className="name bold">{member[fieldsMapping.name]}</div>
+        <div className="name bold">{ field(member, fieldsMapping, fields.name) }</div>
         <div className="full-name">
-          {member[fieldsMapping.fullName]}
+          { field(member, fieldsMapping, fields.fullName) }
         </div>
-        <div className="position">{member[fieldsMapping.position]}</div>
+        <div className="position">{field(member, fieldsMapping, fields.position) }</div>
         <div className="eid">
           <span>{`EID\u00A0\u00A0\u00A0${
-            member[fieldsMapping.eid]
+            field(member, fieldsMapping, fields.eid)
           }`}</span>
         </div>
       </div>

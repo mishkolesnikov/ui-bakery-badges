@@ -5,7 +5,7 @@ import './printer.css';
 export const Printer = ({members, selected, fieldsMapping, badge}) => {
 
   const [loading, setLoading] = useState(false);
-  
+
   const badgeRefs = members.map(() => ({
     front: React.createRef(),
     back: React.createRef(),
@@ -94,7 +94,6 @@ export const Printer = ({members, selected, fieldsMapping, badge}) => {
     <div className="loader">Loading...</div>
   ) : (
     <div className='printer'>
-      {printButton}
       <Badge
         members={members}
         selected={selected}
@@ -102,6 +101,7 @@ export const Printer = ({members, selected, fieldsMapping, badge}) => {
         fieldsMapping={fieldsMapping}
         badge={badge}
       />
+      {printButton}
     </div>
   );
 }

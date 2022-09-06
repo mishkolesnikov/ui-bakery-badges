@@ -1,0 +1,19 @@
+.fields-mapping-container {
+  border-right: 1px solid rgb(236, 239, 245);
+}
+
+.row {
+  margin: 5px;
+}
+
+.row label {
+  display: flex;  
+}
+
+.label {
+  width: 5rem;
+} 
+
+.control {
+  width: 15rem;
+}

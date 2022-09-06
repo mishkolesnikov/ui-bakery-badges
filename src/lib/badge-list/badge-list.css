@@ -1,5 +1,8 @@
+.badges-list-contaner {
+  border-right: 1px solid rgb(236, 239, 245);
+}
+
 .badges-list {
-  border: 1px solid #ededed;
   padding: 1rem;
 }
 

@@ -2,6 +2,10 @@
   font-family: ProximaNovaRegular, sans-serif;
 }
 
+.printer {
+  padding: 2rem;
+}
+
 .bold {
   font-family: ProximaNovaBold, sans-serif;
 }
@@ -16,11 +20,6 @@ p {
 
 button {
   margin: 1rem 1rem 1rem 0;
-}
-
-.preview {
-  height: 400px;
-  width: 520px;
 }
 
 .badge-container {

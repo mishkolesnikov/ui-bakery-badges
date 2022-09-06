@@ -1,0 +1,40 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
+.app-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: rgba(44, 51, 73, 0.1) 0px 8px 16px 0px;
+}
+
+.card-header {
+  padding: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 24px;
+  border-bottom: 1px solid rgb(236, 239, 245);
+}
+
+button {
+  background-color: rgb(80, 114, 249);
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: rgb(123, 151, 251);
+  cursor: pointer;
+}
+
+button:active {
+  background-color: rgb(58, 86, 214);
+}

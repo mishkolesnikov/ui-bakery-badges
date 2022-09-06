@@ -38,10 +38,6 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
   const preview =
       selected != null ? (
         <div>
-          Preview
-          <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>
-            Try Recrop Avatar
-          </button>
           <div className="badge-container">
             <div className="front">
               <span className="heading">Front</span>
@@ -62,15 +58,23 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
               </div>
             </div>
           </div>
+          <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>
+            Try Recrop Avatar
+          </button>
         </div>
       ) : (
         'Please click on one of the elements to see the preview'
       );
   
       return (
-        <div className="badge">
-          <div className="preview">{preview}</div>
-          <div className="to-print">{badges}</div>
+        <div className="badge-contaner">
+          {/* <div className="card-header">
+            Badge
+          </div> */}
+          <div className="badge">
+            <div className="preview">{preview}</div>
+            <div className="to-print">{badges}</div>
+          </div>
         </div>
       )
 }
