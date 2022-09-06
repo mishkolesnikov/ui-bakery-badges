@@ -6,7 +6,7 @@ export const FieldsMapping = ({ badgeFields, dataFields, fieldsMapping, onMappin
       <div className="card-header">
         Fields Mapping
       </div>
-      <div className="fiels">
+      <div className="fields">
         {
           badgeFields.map(field => (
             <div className="row" key={field}>

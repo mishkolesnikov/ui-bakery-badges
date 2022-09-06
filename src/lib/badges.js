@@ -10,10 +10,13 @@ export const badges = {
     back: CMBack,
     front: CMFront,
     fields: Object.values(CMFields),
+    title: 'CERT Membership'
   },
   favStuffing: {
     back: FSBack,
     front: FSFront,
-    fields: ['uid', 'eid', 'name', 'fullName', 'qrCode', 'position']
+    fields: ['uid', 'eid', 'name', 'fullName', 'qrCode', 'position'],
+    title: 'Favorite Stuffing',
+    noAvatar: true
   }
 };

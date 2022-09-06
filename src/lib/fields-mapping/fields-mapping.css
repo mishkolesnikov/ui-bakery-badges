@@ -2,18 +2,36 @@
   border-right: 1px solid rgb(236, 239, 245);
 }
 
-.row {
-  margin: 5px;
+.fields {
+  padding: 12px;
 }
 
-.row label {
-  display: flex;  
+.row:not(:last-child) {
+  margin-bottom: 16px;
 }
 
 .label {
-  width: 5rem;
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 3px;
 } 
 
 .control {
-  width: 15rem;
+  background-color: rgb(247, 249, 252);
+  border-radius: 4px;
+  border: 1px solid rgb(221, 225, 235);
+  padding: 5px 16px;
+  font-weight: 600;
+  font-family: 'Inter var', sans-serif;
+  color: rgb(48, 54, 69);
+}
+
+.control:hover {
+  background-color: rgb(236, 239, 245);
+}
+
+.control:focus {
+  border: 1px solid rgb(80, 114, 249);
+  background-color: #fff;
 }

@@ -17,7 +17,7 @@ export const Container = ({ members, selected, dataFields }) => {
 
   return (
     <div className="app-container">
-      <BadgeList onBadgeSelected={(badgeName) => setBadge(badgeName)}/>
+      <BadgeList badge={badge} onBadgeSelected={(badgeName) => setBadge(badgeName)}/>
       { 
         badge
          ? <FieldsMapping 

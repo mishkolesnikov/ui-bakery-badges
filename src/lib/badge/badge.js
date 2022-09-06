@@ -58,9 +58,11 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
               </div>
             </div>
           </div>
-          <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>
-            Try Recrop Avatar
-          </button>
+          { !badge.noAvatar &&
+              <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>
+                Try Recrop Avatar
+              </button>
+          }
         </div>
       ) : (
         'Please click on one of the elements to see the preview'

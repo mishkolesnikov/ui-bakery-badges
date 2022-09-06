@@ -1,7 +1,10 @@
 @import url('https://rsms.me/inter/inter.css');
 html { font-family: 'Inter', sans-serif; }
 @supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
+  html { 
+    font-family: 'Inter var', sans-serif;
+    color: rgb(48, 54, 69);
+  }
 }
 
 .app-container {
@@ -28,6 +31,12 @@ button {
   border: none;
   font-size: 12px;
   font-weight: 700;
+}
+
+button[disabled], button[disabled]:hover {
+  background-color: rgba(156, 163, 179, 0.243);
+  color: rgba(156, 163, 179, 0.482);
+  cursor: default;
 }
 
 button:hover {
