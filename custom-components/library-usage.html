@@ -26,8 +26,11 @@
       <BadgesLib.Printer
         members={data.members.filter((m) => m.Select)}
         selected={data.selected}
-        dataFields={data.memebers[0]}
-        badge={badge}
+        dataFields={
+          data.members && data.members.length > 0
+            ? Object.keys(data.members[0])
+            : []
+        }
       />
     );
   };

@@ -28,7 +28,7 @@
     ></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <script src="../dist/index.umd.min.js"></script>
+    <script src="../dist/index.umd.js"></script>
 
     <!-- Load our React component. -->
     <script type="text/babel">
@@ -81,7 +81,11 @@
           <BadgesLib.Container
             members={data.members}
             selected={data.selected}
-            dataFields={Object.keys(data.members[0])}
+            dataFields={
+              data.members && data.members.length > 0
+                ? Object.keys(data.members[0])
+                : []
+            }
           />
         );
       };

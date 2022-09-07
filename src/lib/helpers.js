@@ -3,7 +3,7 @@ export const field = (member, fieldsMapping, fieldName) => {
     return `{${fieldName}}`;
   }
   
-  if (member[fieldsMapping[fieldName]] == null) {
+  if (!member[fieldsMapping[fieldName]]) {
     return '\u00A0';
   }
 

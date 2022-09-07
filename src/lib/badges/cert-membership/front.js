@@ -64,7 +64,7 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
       </div>
       <div className="body">
         <div className="side">
-          {'Valid until ' + field(member, fieldsMapping, fields.expiration)}
+          {'Valid until ' + field(member, fieldsMapping, fields.expitarion)}
         </div>
         <div className="center">
           <div className="avatar-row">{avatar}</div>

@@ -20,22 +20,20 @@ export const Container = ({ members, selected, dataFields }) => {
       <BadgeList badge={badge} onBadgeSelected={(badgeName) => setBadge(badgeName)}/>
       { 
         badge
-         ? <FieldsMapping 
-            badgeFields={badges[badge].fields}
-            dataFields={dataFields}
-            fieldsMapping={fieldsMapping}
-            onMappingChange={(field, value) => handleMappingChange(field, value)}
-          />
-          : "Select badge first"
-      }
-      {
-        badge 
-          ? <Printer
-              members={members}
-              selected={selected}
+         ? <div className="content">
+            <FieldsMapping 
+              badgeFields={badges[badge].fields}
+              dataFields={dataFields}
               fieldsMapping={fieldsMapping}
-              badge={badges[badge]}
+              onMappingChange={(field, value) => handleMappingChange(field, value)}
             />
+              <Printer
+                members={members}
+                selected={selected}
+                fieldsMapping={fieldsMapping}
+                badge={badges[badge]}
+              />
+            </div>
           : 'Select badge first'
       }
     </div>
