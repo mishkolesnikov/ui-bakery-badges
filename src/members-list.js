@@ -6,7 +6,7 @@ export const MembersList = ({ data, onMemberSelected, onPreviewSelected }) => {
       {data.map((member, index) => (
         <div className='member' key={index}>
           <input type="checkbox" className="checkbox" onChange={(v) => onMemberSelected(v.target.checked, member.row_number_id)}></input>
-          <div className='member-name' onClick={() => onPreviewSelected(member)}>{member.firstName}</div>
+          <div className='member-name' onClick={() => onPreviewSelected(member)}>{member.ISSUED_TO_FIRST_NAME_MERIT}</div>
         </div>
       ))}
     </div>

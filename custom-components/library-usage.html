@@ -23,7 +23,7 @@
     const data = UB.useData();
 
     return (
-      <BadgesLib.Printer
+      <BadgesLib.Container
         members={data.members.filter((m) => m.Select)}
         selected={data.selected}
         dataFields={

@@ -2,6 +2,7 @@
 export const data = {
   members: [
     {
+      "row_number_id": 1,
       "Select": true,
       "ID": "#0000009",
       "ISSUED_TO_FIRST_NAME_MERIT": "Samantha",
@@ -14,6 +15,7 @@ export const data = {
       "POSITION": "Membership Chair"
     },
     {
+      "row_number_id": 2,
       "Select": true,
       "ID": "#0001134",
       "ISSUED_TO_FIRST_NAME_MERIT": "Jenny",
@@ -27,6 +29,7 @@ export const data = {
     },
   ],
   selected: {
+    "row_number_id": 1,
     "Select": "",
     "ID": "#0000009",
     "ISSUED_TO_FIRST_NAME_MERIT": "Samantha",
@@ -46,6 +49,8 @@ export const data = {
 // export const data = {
 //   members: [
 //     {
+  //     "row_number_id": 1,
+    //   "Select": true,
 //       "ISSUED_TO_FIRST_NAME_MERIT": "Danielle",
 //       "Last Name": "Cook",
 //       "Email Address": "dmcook1991@aol.com",
@@ -58,6 +63,8 @@ export const data = {
 //       "name": "Danielle Cook"
 //     },
 //     {
+  //     "Select": true,
+  //     "row_number_id": 2,
 //       "ISSUED_TO_FIRST_NAME_MERIT": "Angela",
 //       "Last Name": "Harris",
 //       "Email Address": "harrisangela34@yahoo.com",
@@ -71,6 +78,7 @@ export const data = {
 //     },
 //   ],
 //   selected:   {
+  //   "row_number_id": 1,
 //     "ISSUED_TO_FIRST_NAME_MERIT": "Danielle",
 //     "Last Name": "Cook",
 //     "Email Address": "dmcook1991@aol.com",
