@@ -19,19 +19,6 @@
 </div>
 
 <script type="text/babel">
-  const fieldsMapping = {
-    uid: 'ID',
-    avatarUrl: 'HEADSHOT_URL',
-    position: 'POSITION',
-    firstName: 'ISSUED_TO_FIRST_NAME_MERIT',
-    lastName: 'ISSUED_TO_LAST_NAME_MERIT',
-    memberNumber: 'ID',
-    qrCode: 'QR_URL',
-    expiration: 'EXPIRATION_DATE',
-  };
-
-  const badge = BadgesLib.badges.certMembership;
-
   const App = () => {
     const data = UB.useData();
 
@@ -39,7 +26,7 @@
       <BadgesLib.Printer
         members={data.members.filter((m) => m.Select)}
         selected={data.selected}
-        fieldsMapping={fieldsMapping}
+        dataFields={data.memebers[0]}
         badge={badge}
       />
     );

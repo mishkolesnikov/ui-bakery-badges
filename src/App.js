@@ -7,18 +7,6 @@ import './App.css'
 
 export const App = () => {
 
-  ////////////////////// cert-membership
-  // const fieldsMapping = {
-  //   uid: 'ID',
-  //   avatarUrl: 'HEADSHOT_URL',
-  //   position: 'POSITION',
-  //   firstName: 'ISSUED_TO_FIRST_NAME_MERIT',
-  //   lastName: 'ISSUED_TO_LAST_NAME_MERIT',
-  //   memberNumber: 'ID',
-  //   qrCode: 'QR_URL',
-  //   expiration: 'EXPIRATION_DATE',
-  // };
-
   //////////////////// favorite-stuffing
   const fieldsMapping = {
     uid: 'EMPLOYEE_ID',

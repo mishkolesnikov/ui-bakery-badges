@@ -26,10 +26,9 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
       crossorigin
     ></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <script src="../dist/index.umd.js"></script>
-    <!-- <script src="../dist/index.umd.js"></script> -->
+    <script src="../dist/index.umd.min.js"></script>
 
     <!-- Load our React component. -->
     <script type="text/babel">
@@ -78,25 +77,11 @@
         },
       };
       const App = () => {
-        const fieldsMapping = {
-          uid: 'ID',
-          avatarUrl: 'HEADSHOT_URL',
-          position: 'POSITION',
-          firstName: 'ISSUED_TO_FIRST_NAME_MERIT',
-          lastName: 'ISSUED_TO_LAST_NAME_MERIT',
-          memberNumber: 'ID',
-          qrCode: 'QR_URL',
-          expiration: 'EXPIRATION_DATE',
-        };
-
-        const badge = BadgesLib.badges.certMembership;
-
         return (
-          <BadgesLib.Printer
+          <BadgesLib.Container
             members={data.members}
             selected={data.selected}
-            fieldsMapping={fieldsMapping}
-            badge={badge}
+            dataFields={Object.keys(data.members[0])}
           />
         );
       };

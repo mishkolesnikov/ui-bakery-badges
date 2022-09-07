@@ -10,8 +10,8 @@ export const FieldsMapping = ({ badgeFields, dataFields, fieldsMapping, onMappin
         {
           badgeFields.map(field => (
             <div className="row" key={field}>
-              <label><span class="label">{field}</span>
-                <select class="control" value={fieldsMapping[field]} onChange={(event) => onMappingChange(field, event.target.value)}>
+              <label><span className="label">{field}</span>
+                <select className="control" value={fieldsMapping[field]} onChange={(event) => onMappingChange(field, event.target.value)}>
                   <option hidden value={undefined}> -- select an option -- </option>
                   {
                     dataFields.map(field => (
