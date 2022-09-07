@@ -1483,7 +1483,7 @@
       return `{${fieldName}}`;
     }
 
-    if (member[fieldsMapping[fieldName]] == null) {
+    if (!member[fieldsMapping[fieldName]]) {
       return '\u00A0';
     }
 
@@ -1552,7 +1552,7 @@
       className: "body"
     }, /*#__PURE__*/React__default["default"].createElement("div", {
       className: "side"
-    }, 'Valid until ' + field(member, fieldsMapping, fields$1.expiration)), /*#__PURE__*/React__default["default"].createElement("div", {
+    }, 'Valid until ' + field(member, fieldsMapping, fields$1.expitarion)), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "center"
     }, /*#__PURE__*/React__default["default"].createElement("div", {
       className: "avatar-row"
@@ -1920,7 +1920,7 @@
     }), printButton);
   };
 
-  var css_248z = "@import url('https://rsms.me/inter/inter.css');\nhtml { font-family: 'Inter', sans-serif; }\n@supports (font-variation-settings: normal) {\n  html { \n    font-family: 'Inter var', sans-serif;\n    color: rgb(48, 54, 69);\n  }\n}\n\n.app-container {\n  display: flex;\n  background-color: #fff;\n  border-radius: 4px;\n  box-shadow: rgba(44, 51, 73, 0.1) 0px 8px 16px 0px;\n}\n\n.card-header {\n  padding: 10px;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  border-bottom: 1px solid rgb(236, 239, 245);\n}\n\nbutton {\n  background-color: rgb(80, 114, 249);\n  text-transform: uppercase;\n  padding: 10px 16px;\n  border-radius: 4px;\n  color: #fff;\n  border: none;\n  font-size: 12px;\n  font-weight: 700;\n}\n\nbutton[disabled], button[disabled]:hover {\n  background-color: rgba(156, 163, 179, 0.243);\n  color: rgba(156, 163, 179, 0.482);\n  cursor: default;\n}\n\nbutton:hover {\n  background-color: rgb(123, 151, 251);\n  cursor: pointer;\n}\n\nbutton:active {\n  background-color: rgb(58, 86, 214);\n}";
+  var css_248z = "@import url('https://rsms.me/inter/inter.css');\nhtml { font-family: 'Inter', sans-serif; }\n@supports (font-variation-settings: normal) {\n  html { \n    font-family: 'Inter var', sans-serif;\n    color: rgb(48, 54, 69);\n  }\n}\n\n.app-container {\n  display: flex;\n  height: 650px;\n  background-color: #fff;\n  border-radius: 4px;\n  box-shadow: rgba(44, 51, 73, 0.1) 0px 8px 16px 0px;\n}\n\n.content {\n  display: flex;\n}\n\n.card-header {\n  padding: 10px;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  border-bottom: 1px solid rgb(236, 239, 245);\n}\n\nbutton {\n  background-color: rgb(80, 114, 249);\n  text-transform: uppercase;\n  padding: 10px 16px;\n  border-radius: 4px;\n  color: #fff;\n  border: none;\n  font-size: 12px;\n  font-weight: 700;\n}\n\nbutton[disabled], button[disabled]:hover {\n  background-color: rgba(156, 163, 179, 0.243);\n  color: rgba(156, 163, 179, 0.482);\n  cursor: default;\n}\n\nbutton:hover {\n  background-color: rgb(123, 151, 251);\n  cursor: pointer;\n}\n\nbutton:active {\n  background-color: rgb(58, 86, 214);\n}";
   styleInject(css_248z);
 
   var Container = function Container(_ref) {
@@ -1950,19 +1950,21 @@
       onBadgeSelected: function onBadgeSelected(badgeName) {
         return setBadge(badgeName);
       }
-    }), badge ? /*#__PURE__*/React.createElement(FieldsMapping, {
+    }), badge ? /*#__PURE__*/React.createElement("div", {
+      className: "content"
+    }, /*#__PURE__*/React.createElement(FieldsMapping, {
       badgeFields: badges[badge].fields,
       dataFields: dataFields,
       fieldsMapping: fieldsMapping,
       onMappingChange: function onMappingChange(field, value) {
         return handleMappingChange(field, value);
       }
-    }) : "Select badge first", badge ? /*#__PURE__*/React.createElement(Printer, {
+    }), /*#__PURE__*/React.createElement(Printer, {
       members: members,
       selected: selected,
       fieldsMapping: fieldsMapping,
       badge: badges[badge]
-    }) : 'Select badge first');
+    })) : 'Select badge first');
   };
 
   exports.Container = Container;
