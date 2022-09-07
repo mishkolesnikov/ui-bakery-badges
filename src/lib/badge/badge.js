@@ -60,7 +60,7 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
           </div>
           { !badge.noAvatar &&
               <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>
-                Try Recrop Avatar
+                Recrop Avatar
               </button>
           }
         </div>

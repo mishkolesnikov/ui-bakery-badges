@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { meritLogoBase64 } from "./logosBase64";
 import { QRCode } from '../../qrcode';
 import { fields } from './fields';
@@ -43,7 +43,7 @@ export const Back = React.forwardRef(({ member, fieldsMapping, preview }, ref) =
         </p>
       </div>
       <div className="qr-code" id={qrId}>
-        { !fieldsMapping[fields.qrCode] && <p>{`{${fields.qrCode}}`}</p>}
+        { !fieldsMapping[fields.qrCode] && <p className='qr-code-placeholder'>{`{${fields.qrCode}}`}</p>}
       </div>
       <div className="back-info-2 bold">
         <p>Download the Merit App to scan this member’s ID QR Code.</p>

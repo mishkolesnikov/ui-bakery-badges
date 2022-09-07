@@ -82,7 +82,7 @@ export const Printer = ({members, selected, fieldsMapping, badge}) => {
     members.length === 0 ? (
       <div>
         <button disabled>Print ({members.length})</button>
-        <span>Please select some records to print</span>
+        <span>Please select some table records to print</span>
       </div>
     ) : (
       <button onClick={() => print()}>

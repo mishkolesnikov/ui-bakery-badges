@@ -11,13 +11,14 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
 
   const [avatarLoading, setAvatarLoading] = React.useState(true);
 
-  const avatarUrl = member[fieldsMapping[fields.avatarUrl]];
+  const avatarUrl = member[fieldsMapping[fields.avatar]];
 
   React.useEffect(() => {
     setAvatarClasses('avatar ' + avatarFormat);
   }, [avatarFormat]);
 
   React.useEffect(() => {
+    console.log('new avatar', avatarUrl);
     if (avatarUrl) {
       setAvatarLoading(true);
     }
@@ -44,7 +45,7 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
         </div>
         <img
             style={avatarLoading ? { display: 'none' } : {}}
-            src={member[fieldsMapping[fields.avatar]]}
+            src={avatarUrl}
             className="img"
             onLoad={imageOnLoadHandler}
             alt="avatar"
