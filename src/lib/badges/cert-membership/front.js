@@ -18,7 +18,9 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
   }, [avatarFormat]);
 
   React.useEffect(() => {
-    setAvatarLoading(true);
+    if (avatarUrl) {
+      setAvatarLoading(true);
+    }
   }, [avatarUrl]);
 
   const imageOnLoadHandler = (event) => {
@@ -30,6 +32,31 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
     }
   };
 
+
+  const avatarPicture = fieldsMapping[fields.avatar]
+   ? (
+      <div className={avatarClasses}>
+        <div
+          className="loader"
+          style={avatarLoading ? {} : { display: 'none' }}
+        >
+          Loading...
+        </div>
+        <img
+            style={avatarLoading ? { display: 'none' } : {}}
+            src={member[fieldsMapping[fields.avatar]]}
+            className="img"
+            onLoad={imageOnLoadHandler}
+            alt="avatar"
+          ></img>
+      </div>
+    )
+    : (
+      <div className="img-placeholder">
+        {'{' + fields.avatar + '}'}
+      </div>
+    );
+
   const avatar = !preview ? (
     <div className={avatarClasses}>
       <img
@@ -40,22 +67,9 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
       ></img>
     </div>
   ) : (
-    <div className={avatarClasses}>
-      <div
-        className="loader"
-        style={avatarLoading ? {} : { display: 'none' }}
-      >
-        Loading...
-      </div>
-      <img
-        style={avatarLoading ? { display: 'none' } : {}}
-        src={member[fieldsMapping[fields.avatarUrl]]}
-        className="img"
-        onLoad={imageOnLoadHandler}
-        alt="avatar"
-      ></img>
-    </div>
+    <div>{avatarPicture}</div>
   );
+
   return (
     <div className="cert-membership container" ref={ref}>
       <div className="header-1 bold">National CERT Association</div>

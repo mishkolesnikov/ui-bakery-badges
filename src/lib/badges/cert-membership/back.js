@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { meritLogoBase64 } from "./logosBase64";
 import { QRCode } from '../../qrcode';
+import { fields } from './fields';
 
 const qrCodes = {};
+
+new QRCode(document.getElementById('noop'), {
+  text: 'initialize',
+  height: 1,
+  width: 1,
+});
+
 export const Back = React.forwardRef(({ member, fieldsMapping, preview }, ref) => {
   const qrId = preview
     ? `qr-code-preview`
-    : `qr-code-${member[fieldsMapping.uid]}`;
+    : `qr-code-${member[fieldsMapping[fields.uid]]}`;
 
-  const qrCode = member[fieldsMapping.qrCode];
+  const qrCode = member[fieldsMapping[fields.qrCode]];
 
   React.useEffect(() => {
-    setTimeout(() => {
+    if (fieldsMapping[fields.qrCode]) {
       const el = document.getElementById(qrId);
       if (qrCodes[qrId] && qrCodes[qrId]._el === el) {
         qrCodes[qrId].clear();
@@ -22,9 +30,9 @@ export const Back = React.forwardRef(({ member, fieldsMapping, preview }, ref) =
           height: 230,
           width: 230,
         });
-      }
-    });
-  }, [qrCode, qrId]);
+      };
+    }
+  }, [qrCode, qrId, fieldsMapping]);
 
   return (
     <div className="cert-membership container back" ref={ref}>
@@ -34,7 +42,9 @@ export const Back = React.forwardRef(({ member, fieldsMapping, preview }, ref) =
           typing and NCA Credentials that the member has achieved.
         </p>
       </div>
-      <div className="qr-code" id={qrId}></div>
+      <div className="qr-code" id={qrId}>
+        { !fieldsMapping[fields.qrCode] && <p>{`{${fields.qrCode}}`}</p>}
+      </div>
       <div className="back-info-2 bold">
         <p>Download the Merit App to scan this member’s ID QR Code.</p>
         <p>Search “Merit” on the App store and Android Shop</p>

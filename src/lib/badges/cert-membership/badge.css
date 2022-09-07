@@ -72,6 +72,13 @@
   height: 145px;
 }
 
+.cert-membership .img-placeholder {
+  height: 145px;
+  width: 145px;
+  border: 1px dashed rgb(221, 225, 235);
+}
+
+
 .cert-membership .position {
   padding-top: 10px;
   min-width: 0;
@@ -129,6 +136,8 @@
   width: 230px;
   margin: 0 auto;
   margin-top: 7px;
+  text-align: center;
+  border: 1px dashed rgb(221, 225, 235);
 }
 
 .cert-membership .merit-logo {

@@ -1393,17 +1393,33 @@
     return QRCode;
   }
 
+  const fields$1 = {
+    uid: 'uid',
+    avatar: 'avatar',
+    position: 'position',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    memberNumber: 'memberNumber',
+    qrCode: 'qrCode',
+    expitarion: 'expiration'
+  };
+
   const qrCodes$1 = {};
+  new QRCode(document.getElementById('noop'), {
+    text: 'initialize',
+    height: 1,
+    width: 1
+  });
   const Back$1 = /*#__PURE__*/React__default["default"].forwardRef((_ref, ref) => {
     let {
       member,
       fieldsMapping,
       preview
     } = _ref;
-    const qrId = preview ? `qr-code-preview` : `qr-code-${member[fieldsMapping.uid]}`;
-    const qrCode = member[fieldsMapping.qrCode];
+    const qrId = preview ? `qr-code-preview` : `qr-code-${member[fieldsMapping[fields$1.uid]]}`;
+    const qrCode = member[fieldsMapping[fields$1.qrCode]];
     React__default["default"].useEffect(() => {
-      setTimeout(() => {
+      if (fieldsMapping[fields$1.qrCode]) {
         const el = document.getElementById(qrId);
 
         if (qrCodes$1[qrId] && qrCodes$1[qrId]._el === el) {
@@ -1416,8 +1432,8 @@
             width: 230
           });
         }
-      });
-    }, [qrCode, qrId]);
+      }
+    }, [qrCode, qrId, fieldsMapping]);
     return /*#__PURE__*/React__default["default"].createElement("div", {
       className: "cert-membership container back",
       ref: ref
@@ -1426,7 +1442,7 @@
     }, /*#__PURE__*/React__default["default"].createElement("p", null, "Scanning the member QR code will return any FEMA CERT credentialing typing and NCA Credentials that the member has achieved.")), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "qr-code",
       id: qrId
-    }), /*#__PURE__*/React__default["default"].createElement("div", {
+    }, !fieldsMapping[fields$1.qrCode] && /*#__PURE__*/React__default["default"].createElement("p", null, `{${fields$1.qrCode}}`)), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "back-info-2 bold"
     }, /*#__PURE__*/React__default["default"].createElement("p", null, "Download the Merit App to scan this member\u2019s ID QR Code."), /*#__PURE__*/React__default["default"].createElement("p", null, "Search \u201CMerit\u201D on the App store and Android Shop")), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "logo-footer"
@@ -1464,19 +1480,8 @@
     }
   }
 
-  var css_248z$5 = ".cert-membership.container {\n  width: 270px;\n  height: 430px;\n  position: relative;\n  background-color: #fff;\n}\n\n.cert-membership .header-1 {\n  text-align: center;\n  background-color: #101e3d;\n  color: #ffffff;\n  font-size: 18px;\n  padding: 3px 0;\n}\n\n.cert-membership .header-2 {\n  text-align: center;\n  background-color: #6ea340;\n  font-size: 18px;\n  line-height: 1;\n  padding: 2px;\n}\n\n.cert-membership .body {\n  display: flex;\n  position: relative;\n}\n\n.cert-membership .side {\n  transform: rotate(-180deg);\n  text-align: center;\n  writing-mode: vertical-lr;\n  font-size: 9px;\n  padding: 0 10px;\n  position: absolute;\n  height: 100%;\n}\n\n.cert-membership .center {\n  padding-top: 13px;\n  text-align: center;\n}\n\n.cert-membership .footer {\n  height: 50px;\n  text-align: center;\n  line-height: 50px;\n  font-size: 32px;\n}\n\n.cert-membership .avatar-row {\n  display: flex;\n  justify-content: center;\n  height: 145px;\n}\n\n.cert-membership .avatar {\n  flex-shrink: 0;\n  height: 145px;\n  width: 145px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n\n.cert-membership .portrait .img {\n  width: 145px;\n}\n\n.cert-membership .landscape .img {\n  height: 145px;\n}\n\n.cert-membership .position {\n  padding-top: 10px;\n  min-width: 0;\n}\n\n.cert-membership .name {\n  font-size: 14px;\n  margin-top: 14px;\n  line-height: 1;\n}\n\n.cert-membership .last-name {\n  margin-top: 2px;\n}\n\n.cert-membership .logos {\n  margin-top: 15px;\n  height: 60px;\n}\n\n.cert-membership .logos img {\n  height: 60px;\n}\n\n.cert-membership .logos img:first-child {\n  margin-right: 10px;\n}\n\n.cert-membership .info {\n  margin-top: 10px;\n  padding: 0 20px;\n  font-size: 10px;\n}\n\n.cert-membership .footer-1 {\n  margin-top: 9px;\n  text-align: center;\n  background-color: #101e3d;\n  color: #ffffff;\n  font-size: 17px;\n  padding: 3px 5px;\n  text-transform: uppercase;\n}\n\n.cert-membership .footer-2 {\n  text-align: center;\n  background-color: #6ea340;\n  font-size: 17px;\n  line-height: 1;\n  padding: 2px 0;\n}\n\n.cert-membership .qr-code {\n  height: 230px;\n  width: 230px;\n  margin: 0 auto;\n  margin-top: 7px;\n}\n\n.cert-membership .merit-logo {\n  transform: scale(0.4);\n}\n\n.cert-membership .back-info-1 {\n  padding: 10px;\n  font-size: 12px;\n}\n\n.cert-membership .back-info-2 {\n  margin: 7px 0 10px;\n  font-size: 9px;\n  padding: 10px;\n}\n\n.cert-membership .back-info-2 p:first-child {\n  margin-bottom: 5px;\n}\n\n.cert-membership .logo-footer {\n  text-align: center;\n  margin-top: -10px;\n}\n\n@media print {\n  body {\n    padding: 0;\n    margin: 0;\n    print-color-adjust: exact;\n  }\n\n  .to-print {\n    display: block;\n  }\n}\n\n@page {\n  size: 54mm 86mm;\n  margin: 0mm;\n}";
+  var css_248z$5 = ".cert-membership.container {\n  width: 270px;\n  height: 430px;\n  position: relative;\n  background-color: #fff;\n}\n\n.cert-membership .header-1 {\n  text-align: center;\n  background-color: #101e3d;\n  color: #ffffff;\n  font-size: 18px;\n  padding: 3px 0;\n}\n\n.cert-membership .header-2 {\n  text-align: center;\n  background-color: #6ea340;\n  font-size: 18px;\n  line-height: 1;\n  padding: 2px;\n}\n\n.cert-membership .body {\n  display: flex;\n  position: relative;\n}\n\n.cert-membership .side {\n  transform: rotate(-180deg);\n  text-align: center;\n  writing-mode: vertical-lr;\n  font-size: 9px;\n  padding: 0 10px;\n  position: absolute;\n  height: 100%;\n}\n\n.cert-membership .center {\n  padding-top: 13px;\n  text-align: center;\n}\n\n.cert-membership .footer {\n  height: 50px;\n  text-align: center;\n  line-height: 50px;\n  font-size: 32px;\n}\n\n.cert-membership .avatar-row {\n  display: flex;\n  justify-content: center;\n  height: 145px;\n}\n\n.cert-membership .avatar {\n  flex-shrink: 0;\n  height: 145px;\n  width: 145px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  overflow: hidden;\n}\n\n.cert-membership .portrait .img {\n  width: 145px;\n}\n\n.cert-membership .landscape .img {\n  height: 145px;\n}\n\n.cert-membership .img-placeholder {\n  height: 145px;\n  width: 145px;\n  border: 1px dashed rgb(221, 225, 235);\n}\n\n\n.cert-membership .position {\n  padding-top: 10px;\n  min-width: 0;\n}\n\n.cert-membership .name {\n  font-size: 14px;\n  margin-top: 14px;\n  line-height: 1;\n}\n\n.cert-membership .last-name {\n  margin-top: 2px;\n}\n\n.cert-membership .logos {\n  margin-top: 15px;\n  height: 60px;\n}\n\n.cert-membership .logos img {\n  height: 60px;\n}\n\n.cert-membership .logos img:first-child {\n  margin-right: 10px;\n}\n\n.cert-membership .info {\n  margin-top: 10px;\n  padding: 0 20px;\n  font-size: 10px;\n}\n\n.cert-membership .footer-1 {\n  margin-top: 9px;\n  text-align: center;\n  background-color: #101e3d;\n  color: #ffffff;\n  font-size: 17px;\n  padding: 3px 5px;\n  text-transform: uppercase;\n}\n\n.cert-membership .footer-2 {\n  text-align: center;\n  background-color: #6ea340;\n  font-size: 17px;\n  line-height: 1;\n  padding: 2px 0;\n}\n\n.cert-membership .qr-code {\n  height: 230px;\n  width: 230px;\n  margin: 0 auto;\n  margin-top: 7px;\n  text-align: center;\n  border: 1px dashed rgb(221, 225, 235);\n}\n\n.cert-membership .merit-logo {\n  transform: scale(0.4);\n}\n\n.cert-membership .back-info-1 {\n  padding: 10px;\n  font-size: 12px;\n}\n\n.cert-membership .back-info-2 {\n  margin: 7px 0 10px;\n  font-size: 9px;\n  padding: 10px;\n}\n\n.cert-membership .back-info-2 p:first-child {\n  margin-bottom: 5px;\n}\n\n.cert-membership .logo-footer {\n  text-align: center;\n  margin-top: -10px;\n}\n\n@media print {\n  body {\n    padding: 0;\n    margin: 0;\n    print-color-adjust: exact;\n  }\n\n  .to-print {\n    display: block;\n  }\n}\n\n@page {\n  size: 54mm 86mm;\n  margin: 0mm;\n}";
   styleInject(css_248z$5);
-
-  const fields$1 = {
-    uid: 'uid',
-    avatar: 'avatar',
-    position: 'position',
-    firstName: 'firstName',
-    lastName: 'lastName',
-    memberNumber: 'memberNumber',
-    qrCode: 'qrCode',
-    expitarion: 'expiration'
-  };
 
   const field = (member, fieldsMapping, fieldName) => {
     if (fieldsMapping[fieldName] == null) {
@@ -1505,7 +1510,9 @@
       setAvatarClasses('avatar ' + avatarFormat);
     }, [avatarFormat]);
     React__default["default"].useEffect(() => {
-      setAvatarLoading(true);
+      if (avatarUrl) {
+        setAvatarLoading(true);
+      }
     }, [avatarUrl]);
 
     const imageOnLoadHandler = event => {
@@ -1518,14 +1525,7 @@
       }
     };
 
-    const avatar = !preview ? /*#__PURE__*/React__default["default"].createElement("div", {
-      className: avatarClasses
-    }, /*#__PURE__*/React__default["default"].createElement("img", {
-      src: avatarUrl,
-      className: "img",
-      onLoad: imageOnLoadHandler,
-      alt: "avatar"
-    })) : /*#__PURE__*/React__default["default"].createElement("div", {
+    const avatarPicture = fieldsMapping[fields$1.avatar] ? /*#__PURE__*/React__default["default"].createElement("div", {
       className: avatarClasses
     }, /*#__PURE__*/React__default["default"].createElement("div", {
       className: "loader",
@@ -1536,11 +1536,21 @@
       style: avatarLoading ? {
         display: 'none'
       } : {},
-      src: member[fieldsMapping[fields$1.avatarUrl]],
+      src: member[fieldsMapping[fields$1.avatar]],
       className: "img",
       onLoad: imageOnLoadHandler,
       alt: "avatar"
-    }));
+    })) : /*#__PURE__*/React__default["default"].createElement("div", {
+      className: "img-placeholder"
+    }, '{' + fields$1.avatar + '}');
+    const avatar = !preview ? /*#__PURE__*/React__default["default"].createElement("div", {
+      className: avatarClasses
+    }, /*#__PURE__*/React__default["default"].createElement("img", {
+      src: avatarUrl,
+      className: "img",
+      onLoad: imageOnLoadHandler,
+      alt: "avatar"
+    })) : /*#__PURE__*/React__default["default"].createElement("div", null, avatarPicture);
     return /*#__PURE__*/React__default["default"].createElement("div", {
       className: "cert-membership container",
       ref: ref
@@ -1920,7 +1930,7 @@
     }), printButton);
   };
 
-  var css_248z = "@import url('https://rsms.me/inter/inter.css');\nhtml { font-family: 'Inter', sans-serif; }\n@supports (font-variation-settings: normal) {\n  html { \n    font-family: 'Inter var', sans-serif;\n    color: rgb(48, 54, 69);\n  }\n}\n\n.app-container {\n  display: flex;\n  height: 650px;\n  background-color: #fff;\n  border-radius: 4px;\n  box-shadow: rgba(44, 51, 73, 0.1) 0px 8px 16px 0px;\n}\n\n.content {\n  display: flex;\n}\n\n.card-header {\n  padding: 10px;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  border-bottom: 1px solid rgb(236, 239, 245);\n}\n\nbutton {\n  background-color: rgb(80, 114, 249);\n  text-transform: uppercase;\n  padding: 10px 16px;\n  border-radius: 4px;\n  color: #fff;\n  border: none;\n  font-size: 12px;\n  font-weight: 700;\n}\n\nbutton[disabled], button[disabled]:hover {\n  background-color: rgba(156, 163, 179, 0.243);\n  color: rgba(156, 163, 179, 0.482);\n  cursor: default;\n}\n\nbutton:hover {\n  background-color: rgb(123, 151, 251);\n  cursor: pointer;\n}\n\nbutton:active {\n  background-color: rgb(58, 86, 214);\n}";
+  var css_248z = "@import url('https://rsms.me/inter/inter.css');\nhtml { font-family: 'Inter', sans-serif; }\n@supports (font-variation-settings: normal) {\n  html { \n    font-family: 'Inter var', sans-serif;\n    color: rgb(48, 54, 69);\n  }\n}\n\n.app-container {\n  display: flex;\n  height: 650px;\n  background-color: #fff;\n  border-radius: 4px;\n  box-shadow: rgba(44, 51, 73, 0.1) 0px 8px 16px 0px;\n}\n\n.content {\n  display: flex;\n}\n\n.placeholder {\n  margin: 3rem;\n  text-align: center;\n  flex: 1;\n}\n\n.card-header {\n  padding: 10px;\n  font-weight: 600;\n  font-size: 15px;\n  line-height: 24px;\n  border-bottom: 1px solid rgb(236, 239, 245);\n}\n\nbutton {\n  background-color: rgb(80, 114, 249);\n  text-transform: uppercase;\n  padding: 10px 16px;\n  border-radius: 4px;\n  color: #fff;\n  border: none;\n  font-size: 12px;\n  font-weight: 700;\n}\n\nbutton[disabled], button[disabled]:hover {\n  background-color: rgba(156, 163, 179, 0.243);\n  color: rgba(156, 163, 179, 0.482);\n  cursor: default;\n}\n\nbutton:hover {\n  background-color: rgb(123, 151, 251);\n  cursor: pointer;\n}\n\nbutton:active {\n  background-color: rgb(58, 86, 214);\n}";
   styleInject(css_248z);
 
   var Container = function Container(_ref) {
@@ -1964,7 +1974,9 @@
       selected: selected,
       fieldsMapping: fieldsMapping,
       badge: badges[badge]
-    })) : 'Select badge first');
+    })) : /*#__PURE__*/React.createElement("p", {
+      className: "placeholder"
+    }, "Select badge first"));
   };
 
   exports.Container = Container;

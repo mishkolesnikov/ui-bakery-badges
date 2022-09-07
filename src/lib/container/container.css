@@ -19,6 +19,12 @@ html { font-family: 'Inter', sans-serif; }
   display: flex;
 }
 
+.placeholder {
+  margin: 3rem;
+  text-align: center;
+  flex: 1;
+}
+
 .card-header {
   padding: 10px;
   font-weight: 600;

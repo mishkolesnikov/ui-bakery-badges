@@ -34,7 +34,7 @@ export const Container = ({ members, selected, dataFields }) => {
                 badge={badges[badge]}
               />
             </div>
-          : 'Select badge first'
+          : <p className='placeholder'>Select badge first</p>
       }
     </div>
   );
