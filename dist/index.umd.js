@@ -1,12 +1,13 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.BadgesLib = {}, global.React));
-})(this, (function (exports, React$1) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('react-scale-text')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'react-scale-text'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.BadgesLib = {}, global.React, global.ScaleText));
+})(this, (function (exports, React$1, ScaleText) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var React__default = /*#__PURE__*/_interopDefaultLegacy(React$1);
+  var ScaleText__default = /*#__PURE__*/_interopDefaultLegacy(ScaleText);
 
   function _defineProperty(obj, key, value) {
     if (key in obj) {
@@ -27,20 +28,8 @@
     return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
   }
 
-  function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-  }
-
-  function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-  }
-
   function _arrayWithHoles(arr) {
     if (Array.isArray(arr)) return arr;
-  }
-
-  function _iterableToArray(iter) {
-    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
   }
 
   function _iterableToArrayLimit(arr, i) {
@@ -88,10 +77,6 @@
     for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
 
     return arr2;
-  }
-
-  function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
   }
 
   function _nonIterableRest() {
@@ -1528,8 +1513,6 @@
       setAvatarClasses('avatar ' + avatarFormat);
     }, [avatarFormat]);
     React__default["default"].useEffect(() => {
-      console.log('new avatar', avatarUrl);
-
       if (avatarUrl) {
         setAvatarLoading(true);
       }
@@ -1675,7 +1658,7 @@
     }))));
   });
 
-  var css_248z$4 = ".fav-stuffing.container {\n  width: 270px;\n  height: 430px;\n  position: relative;\n  overflow: hidden;\n  background: #ffffff;\n}\n\n.fav-stuffing .header-container {\n  border-bottom-left-radius: 5px;\n}\n\n.fav-stuffing .header {\n  background-color: #0a81c4;\n  height: 124px;\n  width: 100%;\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 115px;\n}\n\n.fav-stuffing .body {\n  padding-top: 18px;\n  padding-left: 31px;\n}\n\n.fav-stuffing .name {\n  font-size: 46px;\n}\n\n.fav-stuffing .full-name {\n  font-size: 14px;\n  margin-bottom: 24px;\n}\n\n.fav-stuffing .position {\n  font-size: 14px;\n  margin-bottom: 5px;\n}\n\n.fav-stuffing .eid {\n  font-size: 14px;\n}\n\n.fav-stuffing .footer img {\n  height: 54px;\n  margin-top: 43px;\n  margin-left: 102px;\n}\n\n.fav-stuffing .back-content {\n  padding: 151px 18px 0px;\n  height: 100%;\n}\n\n.fav-stuffing .qr-code-container {\n  position: relative;\n}\n\n.fav-stuffing .qr-code-placeholder {\n  width: 100%;\n  height: 100%;\n  border: 2px dashed rgb(221, 225, 235);\n}\n\n.fav-stuffing .qr-code {\n  height: 230px;\n  width: 230px;\n  margin: 0 auto;\n  text-align: center;\n}\n\n.fav-stuffing .merit-logo {\n  transform: translate(-50%, -50%);\n  position: absolute;\n  height: 50px;\n  top: 50%;\n  left: 50%;\n}\n\n.fav-stuffing .back-info {\n  font-size: 11px;\n  margin-bottom: 21px;\n}\n\n@media print {\n  body {\n    padding: 0;\n    margin: 0;\n    print-color-adjust: exact;\n  }\n\n  .to-print {\n    display: block;\n  }\n}\n\n@page {\n  size: 54mm 86mm;\n  margin: 0mm;\n}";
+  var css_248z$4 = ".fav-stuffing.container {\n  width: 270px;\n  height: 430px;\n  position: relative;\n  overflow: hidden;\n  background: #ffffff;\n}\n\n.fav-stuffing .header-container {\n  border-bottom-left-radius: 5px;\n}\n\n.fav-stuffing .header {\n  background-color: #0a81c4;\n  height: 124px;\n  width: 100%;\n  border-bottom-left-radius: 5px;\n  border-bottom-right-radius: 115px;\n}\n\n.fav-stuffing .body {\n  padding: 18px 31px 0;\n}\n\n.fav-stuffing .name {\n  font-size: 46px;\n  height: 66.25px;\n  line-height: 66.25px;\n}\n\n.fav-stuffing .full-name {\n  font-size: 14px;\n  margin-bottom: 24px;\n}\n\n.fav-stuffing .position {\n  font-size: 14px;\n  margin-bottom: 5px;\n}\n\n.fav-stuffing .eid {\n  font-size: 14px;\n}\n\n.fav-stuffing .footer img {\n  height: 54px;\n  margin-top: 43px;\n  margin-left: 102px;\n}\n\n.fav-stuffing .back-content {\n  padding: 151px 18px 0px;\n  height: 100%;\n}\n\n.fav-stuffing .qr-code-container {\n  position: relative;\n}\n\n.fav-stuffing .qr-code-placeholder {\n  width: 100%;\n  height: 100%;\n  border: 2px dashed rgb(221, 225, 235);\n}\n\n.fav-stuffing .qr-code {\n  height: 230px;\n  width: 230px;\n  margin: 0 auto;\n  text-align: center;\n}\n\n.fav-stuffing .merit-logo {\n  transform: translate(-50%, -50%);\n  position: absolute;\n  height: 50px;\n  top: 50%;\n  left: 50%;\n}\n\n.fav-stuffing .back-info {\n  font-size: 11px;\n  margin-bottom: 21px;\n}\n\n@media print {\n  body {\n    padding: 0;\n    margin: 0;\n    print-color-adjust: exact;\n  }\n\n  .to-print {\n    display: block;\n  }\n}\n\n@page {\n  size: 54mm 86mm;\n  margin: 0mm;\n}";
   styleInject(css_248z$4);
 
   const Front = /*#__PURE__*/React__default["default"].forwardRef((_ref, ref) => {
@@ -1694,8 +1677,10 @@
     })), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "body"
     }, /*#__PURE__*/React__default["default"].createElement("div", {
-      className: "name bold"
-    }, field(member, fieldsMapping, fields.name)), /*#__PURE__*/React__default["default"].createElement("div", {
+      className: "name bold parent"
+    }, /*#__PURE__*/React__default["default"].createElement(ScaleText__default["default"], {
+      maxFontSize: 46
+    }, field(member, fieldsMapping, fields.name))), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "full-name"
     }, field(member, fieldsMapping, fields.fullName)), /*#__PURE__*/React__default["default"].createElement("div", {
       className: "position"
@@ -1728,11 +1713,13 @@
   var css_248z$3 = ".badges-list-contaner {\n  border-right: 1px solid rgb(236, 239, 245);\n}\n\n.badges-list {\n  padding: 8px;\n}\n\n.badge-element {\n  padding: 12px 16px;\n  font-size: 13px;\n  font-weight: 600;\n}\n\n.badge-element:not(:last-child) {\n  border-bottom: 1px solid rgb(236, 239, 245);\n}\n\n.badge-element.selected {\n  color: #5072f9;\n}\n\n.badge-element:hover {\n  cursor: pointer;\n  color: rgb(123, 151, 251);\n}";
   styleInject(css_248z$3);
 
-  var BadgeList = function BadgeList(_ref) {
-    var badge = _ref.badge,
-        onBadgeSelected = _ref.onBadgeSelected;
+  const BadgeList = _ref => {
+    let {
+      badge,
+      onBadgeSelected
+    } = _ref;
 
-    var badgeItemClasses = function badgeItemClasses(badgeName) {
+    const badgeItemClasses = badgeName => {
       return badge === badgeName ? 'badge-element selected' : 'badge-element';
     };
 
@@ -1742,17 +1729,12 @@
       className: "card-header"
     }, "Available Badges"), /*#__PURE__*/React.createElement("div", {
       className: "badges-list"
-    }, Object.entries(badges).map(function (_ref2) {
-      var _ref3 = _slicedToArray(_ref2, 2),
-          badgeName = _ref3[0],
-          badge = _ref3[1];
-
+    }, Object.entries(badges).map(_ref2 => {
+      let [badgeName, badge] = _ref2;
       return /*#__PURE__*/React.createElement("div", {
         className: badgeItemClasses(badgeName),
         key: badgeName,
-        onClick: function onClick() {
-          return onBadgeSelected(badgeName);
-        }
+        onClick: () => onBadgeSelected(badgeName)
       }, badge.title);
     })));
   };
@@ -1807,7 +1789,7 @@
 
     const badges = members.length > 0 ? members.map((member, index) => /*#__PURE__*/React.createElement("div", {
       className: "badge-container",
-      key: member[fieldsMapping.uid]
+      key: index
     }, /*#__PURE__*/React.createElement("div", {
       className: "front"
     }, /*#__PURE__*/React.createElement("span", {
@@ -1872,64 +1854,63 @@
   var css_248z$1 = ".printer, .container {\n  font-family: ProximaNovaRegular, sans-serif;\n  color: #000;\n}\n\n.printer {\n  padding: 2rem;\n}\n\n.bold {\n  font-family: ProximaNovaBold, sans-serif;\n}\n\n.to-print {\n  display: none;\n}\n\np {\n  margin: 0;\n}\n\nbutton {\n  margin: 1rem 1rem 1rem 0;\n}\n\n.badge-container {\n  display: flex;\n}\n\n.badge-side-container {\n  border: 5px solid #dbdbdb;\n  margin-right: 20px;\n}\n\n.loader,\n.loader:after {\n  border-radius: 50%;\n  width: 10em;\n  height: 10em;\n}\n.loader {\n  margin: 60px auto;\n  font-size: 10px;\n  position: relative;\n  text-indent: -9999em;\n  border-top: 1.1em solid rgba(223, 223, 223, 0.2);\n  border-right: 1.1em solid rgba(223, 223, 223, 0.2);\n  border-bottom: 1.1em solid rgba(223, 223, 223, 0.2);\n  border-left: 1.1em solid #dfdfdf;\n  -webkit-transform: translateZ(0);\n  -ms-transform: translateZ(0);\n  transform: translateZ(0);\n  -webkit-animation: load8 1.1s infinite linear;\n  animation: load8 1.1s infinite linear;\n}\n@-webkit-keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes load8 {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}";
   styleInject(css_248z$1);
 
-  var Printer = function Printer(_ref) {
-    var members = _ref.members,
-        selected = _ref.selected,
-        fieldsMapping = _ref.fieldsMapping,
-        badge = _ref.badge;
+  const Printer = _ref => {
+    let {
+      members,
+      selected,
+      fieldsMapping,
+      badge
+    } = _ref;
+    const [loading, setLoading] = React$1.useState(false);
+    const badgeRefs = members.map(() => ({
+      front: /*#__PURE__*/React__default["default"].createRef(),
+      back: /*#__PURE__*/React__default["default"].createRef()
+    }));
 
-    var _useState = React$1.useState(false),
-        _useState2 = _slicedToArray(_useState, 2),
-        loading = _useState2[0],
-        setLoading = _useState2[1];
-
-    var badgeRefs = members.map(function () {
-      return {
-        front: /*#__PURE__*/React__default["default"].createRef(),
-        back: /*#__PURE__*/React__default["default"].createRef()
-      };
-    });
-
-    var print = function print() {
+    const print = () => {
       // create hidden iframe
-      var oldFrame = document.getElementById('o-hidd-frame');
+      const oldFrame = document.getElementById('o-hidd-frame');
 
       if (oldFrame) {
         oldFrame.parentNode.removeChild(oldFrame);
       }
 
-      var oHiddFrame = document.createElement('iframe');
+      const oHiddFrame = document.createElement('iframe');
       oHiddFrame.id = 'o-hidd-frame';
       oHiddFrame.style.position = 'fixed';
       oHiddFrame.style.visibility = 'hidden';
       document.body.appendChild(oHiddFrame);
-      var w = oHiddFrame.contentWindow; // const w = window.open();
+      const w = oHiddFrame.contentWindow; // const w = window.open();
       // add needed styles, badge front and back elements to the iframe
 
-      var styles = '';
-      document.querySelectorAll('style').forEach(function (el) {
-        return styles = styles + el.outerHTML;
-      });
-      w.document.write("\n        <html>\n        ".concat(styles, "\n        <head>\n          <link\n            href=\"https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@main/font/Proxima_Nova_Webkit.css\"\n            rel=\"stylesheet\"\n          />\n        </head>\n        <body>\n          ").concat(badgeRefs.map(function (badge) {
-        return badge.front.current.outerHTML + badge.back.current.outerHTML;
-      }).join(''), "\n        </body>\n        </html>")); // print iframe content right after all needed images loaded
+      let styles = '';
+      document.querySelectorAll('style').forEach(el => styles = styles + el.outerHTML);
+      w.document.write(`
+        <html>
+        ${styles}
+        <head>
+          <link
+            href="https://cdn.jsdelivr.net/gh/mishkolesnikov/ui-bakery-badges@main/font/Proxima_Nova_Webkit.css"
+            rel="stylesheet"
+          />
+        </head>
+        <body>
+          ${badgeRefs.map(badge => {
+      return badge.front.current.outerHTML + badge.back.current.outerHTML;
+    }).join('')}
+        </body>
+        </html>`); // print iframe content right after all needed images loaded
 
-      var linkEls = w.document.querySelectorAll('link[rel=stylesheet]');
+      const linkEls = w.document.querySelectorAll('link[rel=stylesheet]');
 
       if (w.document.images.length > 0 || linkEls.lengh > 0 || w.document.fonts.size > 0) {
         setLoading(true);
-        var linksAndImagesLoadingPromises = Array.from([].concat(_toConsumableArray(w.document.images), _toConsumableArray(linkEls))).filter(function (img) {
-          return !img.complete;
-        }).filter(function (img) {
-          return img.src || img.href;
-        }).map(function (img) {
-          return new Promise(function (resolve) {
-            img.onload = img.onerror = function () {
-              resolve();
-            };
-          });
-        });
-        Promise.all([].concat(_toConsumableArray(linksAndImagesLoadingPromises), [w.document.fonts.ready])).then(function () {
+        const linksAndImagesLoadingPromises = Array.from([...w.document.images, ...linkEls]).filter(img => !img.complete).filter(img => img.src || img.href).map(img => new Promise(resolve => {
+          img.onload = img.onerror = () => {
+            resolve();
+          };
+        }));
+        Promise.all([...linksAndImagesLoadingPromises, w.document.fonts.ready]).then(() => {
           setLoading(false);
           w.print();
         });
@@ -1938,12 +1919,10 @@
       }
     };
 
-    var printButton = members.length === 0 ? /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement("button", {
+    const printButton = members.length === 0 ? /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement("button", {
       disabled: true
     }, "Print (", members.length, ")"), /*#__PURE__*/React__default["default"].createElement("span", null, "Please select some table records to print")) : /*#__PURE__*/React__default["default"].createElement("button", {
-      onClick: function onClick() {
-        return print();
-      }
+      onClick: () => print()
     }, "Print (", members.length, ")");
     return loading ? /*#__PURE__*/React__default["default"].createElement("div", {
       className: "loader"

@@ -10,7 +10,7 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
   
   const badges = members.length > 0 
   ? members.map((member, index) => (
-    <div className="badge-container" key={member[fieldsMapping.uid]}>
+    <div className="badge-container" key={index}>
       <div className="front">
         <span className="heading">Front</span>
         <div className="badge-side-container">

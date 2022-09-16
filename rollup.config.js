@@ -1,3 +1,4 @@
+/* eslint-disable */
 
 import babel from "@rollup/plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
@@ -17,9 +18,10 @@ export default [
       name: "BadgesLib",
       globals: {
         react: "React",
+        "react-scale-text": "ScaleText",
       },
     },
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom', 'react-scale-text'],
     plugins: [
       postcss({
         plugins: []
@@ -38,10 +40,11 @@ export default [
       format: "umd",
       name: "BadgesLib",
       globals: {
-        react: "React"
+        react: "React",
+        "react-scale-text": "ScaleText",
       }
     },
-    external: ['react', 'react-dom'],
+    external: ['react', 'react-dom', 'react-scale-text'],
     plugins: [
       postcss({
         plugins: []

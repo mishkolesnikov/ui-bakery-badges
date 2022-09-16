@@ -18,7 +18,6 @@ export const Front = React.forwardRef(({ member, avatarFormat, fieldsMapping, pr
   }, [avatarFormat]);
 
   React.useEffect(() => {
-    console.log('new avatar', avatarUrl);
     if (avatarUrl) {
       setAvatarLoading(true);
     }

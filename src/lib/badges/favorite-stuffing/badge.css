@@ -19,12 +19,13 @@
 }
 
 .fav-stuffing .body {
-  padding-top: 18px;
-  padding-left: 31px;
+  padding: 18px 31px 0;
 }
 
 .fav-stuffing .name {
   font-size: 46px;
+  height: 66.25px;
+  line-height: 66.25px;
 }
 
 .fav-stuffing .full-name {
