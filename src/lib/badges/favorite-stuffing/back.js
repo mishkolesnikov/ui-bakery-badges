@@ -2,15 +2,16 @@ import React from "react";
 import { meritLogoBase64 } from "./logosBase64";
 import { QRCode } from '../../qrcode';
 import { fields } from './fields';
+import { field } from "../../helpers";
 
 const qrCodes = {};
 
 export const Back = React.forwardRef(({ member, fieldsMapping, preview }, ref) => {
   const qrId = preview
     ? `qr-code-preview`
-    : `qr-code-${member[fieldsMapping.uid]}`;
+    : `qr-code-${member[fieldsMapping[fields.uid]]}`;
 
-  const qrCode = member[fieldsMapping.qrCode];
+  const qrCode = member[fieldsMapping[fields.qrCode]];
 
   React.useEffect(() => {
     if (fieldsMapping[fields.qrCode]) {

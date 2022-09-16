@@ -3,7 +3,14 @@ import { BadgeList } from "../badge-list/badge-list";
 import { badges } from "../badges";
 import { FieldsMapping } from "../fields-mapping/fields-mapping";
 import { Printer } from "../printer/printer";
+import { QRCode } from '../qrcode';
 import "./container.css";
+
+new QRCode(document.getElementById('noop'), {
+  text: 'initialize',
+  height: 1,
+  width: 1,
+});
 
 export const Container = ({ members, selected, dataFields }) => {
   const [badge, setBadge] = useState(null);

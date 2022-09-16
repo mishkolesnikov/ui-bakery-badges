@@ -5,12 +5,6 @@ import { fields } from './fields';
 
 const qrCodes = {};
 
-new QRCode(document.getElementById('noop'), {
-  text: 'initialize',
-  height: 1,
-  width: 1,
-});
-
 export const Back = React.forwardRef(({ member, fieldsMapping, preview }, ref) => {
   const qrId = preview
     ? `qr-code-preview`

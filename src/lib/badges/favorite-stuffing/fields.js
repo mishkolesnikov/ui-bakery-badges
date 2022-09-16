@@ -1,8 +1,8 @@
 export const fields = {
-  uid: 'uid',
-  name: 'name',
-  fullName: 'fullName',
-  eid: 'eid',
-  position: 'position',
-  qrCode: 'qrCode'
+  uid: 'row_number_id',
+  name: 'Last Name',
+  fullName: 'name',
+  eid: 'EMPLOYEE_ID',
+  position: 'POSITION',
+  qrCode: 'QR_URL'
 }
