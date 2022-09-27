@@ -14,7 +14,7 @@ new QRCode(document.getElementById('noop'), {
 
 export const Container = ({ members, selected, dataFields }) => {
   const [badge, setBadge] = useState(null);
-
+  
   const handleMappingChange = (field, value) => {
     const mapping = Object.assign({}, fieldsMapping, { [field]: value });
     setFieldsMapping(mapping);

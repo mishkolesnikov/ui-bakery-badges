@@ -10,6 +10,9 @@ import { Back as SSBack } from './badges/surfside/back'
 import { Front as SSFront } from './badges/surfside/front';
 import { fields as SSFields } from './badges/surfside/fields';
 
+import { WristBand } from './badges/wristband/wristband';
+import { fields as WBFields } from './badges/wristband/fields';
+
 export const badges = {
   certMembership: {
     back: CMBack,
@@ -29,5 +32,11 @@ export const badges = {
     front: SSFront,
     fields: Object.values(SSFields),
     title: 'SurfSide',
+  },
+  wristBand: {
+    front: WristBand,
+    fields: Object.values(WBFields),
+    title: 'WristBand',
+    noAvatar: true
   }
 };

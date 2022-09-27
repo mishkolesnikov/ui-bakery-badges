@@ -22,7 +22,7 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
             onFormatChange={() => {}}/>
         </div>
       </div>
-      <div className="back">
+      {badge.back && <div className="back">
         <span className="heading">Back</span>
         <div className="badge-side-container">
           <badge.back
@@ -30,7 +30,7 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
             fieldsMapping={fieldsMapping}
             ref={badgeRefs[index].back}/>
         </div>
-      </div>
+      </div>}
     </div>
   ))
   : null;
@@ -50,13 +50,13 @@ export const Badge = ({ members, selected, badgeRefs, fieldsMapping, badge }) =>
                   preview/>
               </div>
             </div>
-            <div className="back">
+            {badge.back && <div className="back">
               <span className="heading">Back</span>
               <div className="badge-side-container">
                 <badge.back
                   member={selected} fieldsMapping={fieldsMapping} preview />
               </div>
-            </div>
+            </div>}
           </div>
           { !badge.noAvatar &&
               <button onClick={() => changeFormat(avatarFormat === 'portrait' ? 'landscape' : 'portrait')}>

@@ -2,7 +2,6 @@ import React from "react";
 import { meritLogoBase64 } from "./logosBase64";
 import { QRCode } from '../../qrcode';
 import { fields } from './fields';
-import { field } from "../../helpers";
 
 const qrCodes = {};
 

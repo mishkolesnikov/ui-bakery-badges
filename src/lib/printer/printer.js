@@ -42,7 +42,9 @@ export const Printer = ({members, selected, fieldsMapping, badge}) => {
           ${badgeRefs
             .map((badge) => {
               return (
-                badge.front.current.outerHTML + badge.back.current.outerHTML
+                badge.back.current
+                  ? badge.front.current.outerHTML + badge.back.current.outerHTML
+                  : badge.front.current.outerHTML
               );
             })
             .join('')}

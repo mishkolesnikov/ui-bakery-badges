@@ -1,0 +1,31 @@
+.container.wristband {
+  width: 285px;
+  height: 1185px;
+  position: relative;
+  background-color: #fff;
+  padding: 7.5px;
+}
+
+.wristband .qr-code {
+  width: 285px;
+}
+
+.wristband .merit-logo {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.wristband .text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+@page {
+  margin: 0mm;
+  size: 300px 1200px;
+}

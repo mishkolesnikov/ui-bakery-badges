@@ -1,4 +1,4 @@
-// // cert-membership
+// cert-membership
 export const data = {
   members: [
     {
@@ -217,3 +217,21 @@ export const data = {
 //     }
 //   ]
 // };
+
+// wristband
+// export const data = {
+//   members: [
+//     {
+//       row_number_id: 1,
+//       initials: 'KD',
+//       id: 1,
+//       qrUrl: 'https://cataas.com/cat/cute',
+//     },
+//     {
+//       row_number_id: 2,
+//       initials: 'SC',
+//       id: 2,
+//       qrUrl: 'https://cataas.com/cat/ugly',
+//     },
+//   ],
+// }
