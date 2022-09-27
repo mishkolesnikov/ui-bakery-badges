@@ -3,7 +3,7 @@ import "./badge.css";
 import { favLogoBase64 } from './logosBase64';
 import { field } from "../../helpers";
 import { fields } from './fields';
-import ScaleText from "react-scale-text";
+import { ScaledText } from '../../text-scale';
 
 export const Front = React.forwardRef(({ member, fieldsMapping, preview }, ref) => {
   return (
@@ -13,9 +13,7 @@ export const Front = React.forwardRef(({ member, fieldsMapping, preview }, ref) 
       </div>
       <div className="body">
         <div className="name bold parent">
-          <ScaleText maxFontSize={46}>
-            { field(member, fieldsMapping, fields.name) }
-          </ScaleText>
+          <ScaledText text={ field(member, fieldsMapping, fields.name) }></ScaledText>
         </div>
         <div className="full-name">
           { field(member, fieldsMapping, fields.fullName) }

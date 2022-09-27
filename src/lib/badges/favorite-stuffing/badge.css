@@ -83,18 +83,6 @@
   margin-bottom: 21px;
 }
 
-@media print {
-  body {
-    padding: 0;
-    margin: 0;
-    print-color-adjust: exact;
-  }
-
-  .to-print {
-    display: block;
-  }
-}
-
 @page {
   size: 54mm 86mm;
   margin: 0mm;

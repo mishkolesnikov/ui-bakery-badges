@@ -1,0 +1,179 @@
+.surfside.container {
+  width: 270px;
+  height: 430px;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.surfside .header {
+  height: 50px;
+}
+
+.surfside .body {
+  position: relative;
+  height: 317px;
+  padding: 0 20px;
+}
+
+.surfside .body.white {
+  background-color: rgb(229, 229, 229);
+}
+
+.surfside .body.orange {
+  background-color: rgb(205, 132, 118);
+}
+
+.surfside .body.violet {
+  background-color: rgb(132, 81, 213);
+}
+
+.surfside .body.red {
+  background-color: rgb(188, 78, 65);
+}
+
+.surfside .body.grey {
+  background-color: rgb(175, 176, 192);
+}
+
+.surfside .body.blue {
+  background-color: rgb(64, 112, 238);
+}
+
+.surfside .body.pink {
+  background-color: rgb(217, 93, 223);
+}
+
+.surfside .body.cyan {
+  background-color: rgb(169, 224, 214);
+}
+
+.surfside .body.yellow {
+  background-color: rgb(230, 228, 103);
+}
+
+.surfside .body.green {
+  background-color: rgb(109, 150, 66);
+}
+
+.surfside .footer {
+  height: 63px;
+  text-align: center;
+  line-height: 63px;
+  font-size: 40px;
+  padding: 0 20px;
+}
+
+.surfside .avatar-row {
+  display: flex;
+  height: 125px;
+}
+
+.surfside .avatar {
+  flex-shrink: 0;
+  margin-right: 8px;
+  height: 125px;
+  width: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.surfside .portrait .img {
+  width: 125px;
+}
+
+.surfside .landscape .img {
+  height: 125px;
+}
+
+.surfside .position {
+  padding-top: 10px;
+  min-width: 0;
+}
+
+.surfside .label {
+  font-size: 10px;
+  margin-bottom: 3px;
+  font-weight: 800;
+}
+
+.surfside .value {
+  width: 100%;
+}
+
+.scaletext-wrapper span {
+  white-space: nowrap;
+  display: block;
+  height: 100%;
+}
+
+.surfside .last-name {
+  font-size: 29px;
+  height: 40px;
+}
+
+.surfside .organization {
+  margin-top: 10px;
+}
+
+.surfside .organization .value > div {
+  height: 55.5px;
+}
+
+.surfside .name {
+  height: 90px;
+  margin-top: 10px;
+}
+
+.surfside .badge-container {
+  display: flex;
+}
+
+.surfside .badge-side-container {
+  border: 5px solid #dbdbdb;
+  margin-right: 20px;
+}
+
+.surfside .qr-code {
+  height: 230px;
+  width: 230px;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.surfside .merit-logo {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.surfside .text-container {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.surfside .line-1 {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.surfside .line-2 {
+  font-size: 26px;
+  margin-bottom: 27px;
+}
+
+.surfside .line-3 {
+  font-size: 12px;
+  margin-bottom: 13px;
+}
+
+.surfside .timestamp {
+  padding-left: 20px;
+  font-size: 8px;
+}

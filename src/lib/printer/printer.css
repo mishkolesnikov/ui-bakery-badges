@@ -12,7 +12,9 @@
 }
 
 .to-print {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 p {
@@ -71,5 +73,17 @@ button {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+@media print {
+  body {
+    padding: 0;
+    margin: 0;
+    print-color-adjust: exact;
+  }
+
+  .to-print {
+    opacity: 1;
   }
 }
